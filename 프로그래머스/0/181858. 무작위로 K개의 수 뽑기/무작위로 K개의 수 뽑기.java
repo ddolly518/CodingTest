@@ -5,10 +5,10 @@ class Solution {
         int[] answer = new int[k];
         Arrays.fill(answer, -1);
         int i=0;
-        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
         for (int num : arr) {
-            if (!map.containsKey(num)) {
-                map.put(num, map.getOrDefault(num,0)+1);
+            if (!list.contains(num)) {
+                list.add(num);
                 if (i < k) {
                     answer[i++]=num;
                 }
