@@ -1,19 +1,15 @@
 class Solution {
     public String solution(String s) {
         String answer = "";
-        int index = 0;
-        for (char ch : s.toCharArray()) {
-            if (Character.isUpperCase(ch)||Character.isLowerCase(ch)) {
-                if (index%2==0) {
-                    answer+=(Character.toUpperCase(ch));
-                } else {
-                    answer+=(Character.toLowerCase(ch)); 
-                } 
-                index++;
-            } else {
-                index = 0;
-                answer+=ch;
-            }
+        String[] strs = s.split("");
+        int count = 0;
+        for (String str : strs) {
+            char ch = str.charAt(0);
+            count = (ch==' ')?0:count+1;
+            if (count%2==1)
+                answer+=Character.toUpperCase(ch);
+            else 
+                answer+=Character.toLowerCase(ch);
         }
         return answer;
     }
