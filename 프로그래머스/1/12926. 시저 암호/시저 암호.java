@@ -5,9 +5,9 @@ class Solution {
         String answer = "";
         for (char ch : s.toCharArray()) {
             if (Character.isUpperCase(ch)) {
-                answer+=(char)(('A'+(ch-'A'+n)%('Z'-'A'+1)));
+                answer+=(char)('A'+(ch-'A'+n)%26);
             } else if (Character.isLowerCase(ch)) {
-                answer+=(char)(('a'+(ch-'a'+n)%('Z'-'A'+1)));
+                answer+=(char)('a'+(ch-'a'+n)%26);
             } else {
                 answer+=ch;
             }
