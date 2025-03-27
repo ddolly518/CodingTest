@@ -8,12 +8,13 @@ class Solution {
                 set.add(numbers[i]+numbers[j]);
             }
         }
-        Integer[] integerArray = set.toArray(new Integer[0]);
-        Arrays.sort(integerArray);
-        int[] answer = new int[integerArray.length];
-        for (int i=0; i<integerArray.length; i++) {
-            answer[i]=integerArray[i];
+        
+        int[] answer = new int[set.size()];
+        int index = 0;
+        for (int num:set) {
+            answer[index++]=num;
         }
+        Arrays.sort(answer);
         return answer;
     }
 }
