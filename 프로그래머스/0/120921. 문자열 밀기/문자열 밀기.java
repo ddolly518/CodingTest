@@ -1,20 +1,14 @@
 class Solution {
     public int solution(String A, String B) {
-        int answer = -1;
-        int count = 0;
-        StringBuilder sb = new StringBuilder(A);
+        int answer = 0;
         if (A.equals(B))
             return 0;
-        for (int i=0; i<A.length(); i++) {
-            Character temp = sb.charAt(A.length()-1);
-            for (int j=A.length()-1; j>0; j--) {
-                sb.setCharAt(j,sb.charAt(j-1));
-            }
-            sb.setCharAt(0,temp);
-            count++;
-            if ((sb.toString()).equals(B))
-                return count;
+        A=A.repeat(2);
+        for (int i=0; i<A.length()/2; i++) {
+            if (B.equals(A.substring(A.length()/2-i,A.length()-i)))
+                return answer;
+            answer++;
         }
-        return answer;
+        return -1;
     }
 }
