@@ -1,0 +1,14 @@
+-- 코드를 입력하세요
+SELECT MCDP_CD AS '진료과코드', COUNT(MCDP_CD) AS '5월예약건수'
+FROM APPOINTMENT
+WHERE YEAR(APNT_YMD)=2022 AND MONTH(APNT_YMD)=5
+GROUP BY MCDP_CD
+ORDER BY COUNT(PT_NO), MCDP_CD
+
+/*APNT_YMD : 진료예약일시
+APNT_NO : 진료예약번호
+PT_NO : 환자번호
+MCDP_CD : 진료과코드
+MDDR_ID : 의사 아이디
+APNT_CNCL_YN : 예약취소여부
+APNT_CNCL_YMD : 예약취소날짜*/
