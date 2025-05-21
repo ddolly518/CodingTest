@@ -2,8 +2,8 @@ import java.util.*;
 
 class Solution {
     public int solution(int[][] maps) {
-        int[] a = {0, 1, 0, -1}; // x방향
-        int[] b = {1, 0, -1, 0}; // y방향
+        int[] a = {0, 1, 0, -1}; 
+        int[] b = {1, 0, -1, 0};
         int answer = -1;
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{0,0,1});
