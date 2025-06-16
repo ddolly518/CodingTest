@@ -4,10 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int H = sc.nextInt();
-        H = (H==0)?24:H;
         int M = sc.nextInt();
         int num = H*60+M-45;
-        int n = num/60==24?0:num/60;
-        System.out.println(n+" "+num%60);
+        if (num<0) {
+            num+=24*60;
+        }
+        System.out.println(num/60+" "+num%60);
     }
 }
