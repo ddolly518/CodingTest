@@ -1,12 +1,13 @@
-import java.util.*;
+import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int A = in.nextInt();
-        if (A%4==0 && (A%100!=0 || A%400==0)) {
-            System.out.print(1);
-        } else 
-            System.out.print(0);
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num%4==0 && (num%100!=0 || num%400==0)) {
+            System.out.println("1");
+        } else {
+            System.out.println("0");
+        }
     }
 }
