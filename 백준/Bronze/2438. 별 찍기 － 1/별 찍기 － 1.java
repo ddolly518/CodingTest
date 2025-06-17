@@ -1,11 +1,14 @@
-import java.util.*;
+import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int count = in.nextInt();
-        for (int i=1; i<=count; i++) {
-            System.out.println("*".repeat(i));
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        for(int i=1; i<=N; i++) {
+           for (int j=0; j<i; j++) {
+               System.out.print("*");
+           } 
+           System.out.println();
         }
     }
 }
