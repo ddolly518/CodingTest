@@ -1,10 +1,9 @@
-import java.util.*;
+import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String A = in.next();
-        System.out.print(A.length());
-        in.close();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println(str.length());
     }
 }
