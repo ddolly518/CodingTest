@@ -1,18 +1,25 @@
 import java.util.*;
+import java.io.*;
 
-class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        while (true) {
-            int A = in.nextInt();
-            int B = in.nextInt();
-            if (A==0&&B==0)
-                break;
-            if (A > B) {
-                System.out.println("Yes");
-            } else 
-                System.out.println("No");
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        while ((a+b)!=0) {
+            if (a>b) {
+                bw.write("Yes"+"\n");
+            } else {
+                bw.write("No\n");
+            }
+            st = new StringTokenizer(br.readLine());
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
         }
-        in.close();
+        
+        bw.flush();
+        bw.close();
     }
 }
