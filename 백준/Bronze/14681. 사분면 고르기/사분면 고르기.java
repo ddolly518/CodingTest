@@ -3,20 +3,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        if (A>0) {
-            if (B>0) {
-                System.out.println("1");
-            } else {
-                System.out.println("4");
-            }
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int answer = -1;
+        
+        if (x>0) {
+            if (y>0)
+                answer = 1;
+            else
+                answer = 4;
         } else {
-            if (B>0) {
-                System.out.println("2");
-            } else {
-                System.out.println("3");
-            }
+            if (y>0)
+                answer = 2;
+            else
+                answer = 3;
         }
+        
+        System.out.print(answer);
     }
 }
