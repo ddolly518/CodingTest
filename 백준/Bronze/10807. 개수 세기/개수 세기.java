@@ -3,15 +3,20 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Map<Integer, Integer> map = new HashMap<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] arr = new int[N+1];
+        int answer = 0;
+        
         for (int i=0; i<N; i++) {
-            int num = Integer.parseInt(st.nextToken());
-            map.put(num, map.getOrDefault(num,0)+1);
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        int v = Integer.parseInt(br.readLine());
-        System.out.println(map.getOrDefault(v,0));
+        int num = Integer.parseInt(br.readLine());
+        for (int i=0; i<N; i++) {
+            if (arr[i]==num)
+                answer++;
+        }
+        System.out.print(answer);
     }
 }
