@@ -7,17 +7,18 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N];
+        int[] arr = new int[N+1];
+        
         for (int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            for (int j=a-1; j<b; j++) {
+            for (int j=a; j<=b; j++) {
                 arr[j]=c;
             }
         }
-        for (int i=0; i<N; i++) {
+        for (int i=1; i<=N; i++) {
             System.out.print(arr[i]+" ");
         }
     }
