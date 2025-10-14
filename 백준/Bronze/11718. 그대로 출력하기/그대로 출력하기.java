@@ -6,10 +6,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String line;
+        
         while ((line=br.readLine())!=null) {
             bw.write(line+"\n");
         }
         bw.flush();
-        bw.close();
     }
 }
