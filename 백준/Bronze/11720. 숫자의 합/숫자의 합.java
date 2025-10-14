@@ -1,15 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = Integer.parseInt(sc.nextLine());
-        String str = sc.nextLine();
-        String[] arr = str.split("");
+        int N = sc.nextInt();
+        String str = sc.next();
         int answer = 0;
+        
         for (int i=0; i<N; i++) {
-            answer+=Integer.parseInt(arr[i]);
+            char ch = str.charAt(i);
+            answer += (ch-'0');
         }
-        System.out.println(answer);
+        System.out.print(answer);
     }
 }
