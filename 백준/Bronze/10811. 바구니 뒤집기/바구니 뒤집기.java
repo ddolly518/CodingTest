@@ -5,11 +5,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        List<Integer> list = new ArrayList<>();
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        for (int i=0; i<N; i++) {
-            list.add(i+1);
+        List<Integer> list = new ArrayList<>();
+        for (int i=1; i<=N; i++) {
+            list.add(i);
         }
         for (int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine());
@@ -17,7 +17,7 @@ public class Main {
             int b = Integer.parseInt(st.nextToken());
             Collections.reverse(list.subList(a-1,b));
         }
-        for (int i=0; i<N; i++) {
+        for (int i=0; i<list.size(); i++) {
             System.out.print(list.get(i)+" ");
         }
     }
