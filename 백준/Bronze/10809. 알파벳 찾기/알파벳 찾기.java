@@ -1,17 +1,21 @@
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int['z'-'a'+1];
-        Arrays.fill(arr,-1);
         String str = sc.next();
-        for (int i=str.length()-1; i>=0; i--) {
+        int num = 'z'-'a'+1;
+        int[] arr = new int[num+1];
+        Arrays.fill(arr,-1);
+        
+        for (int i=0; i<str.length(); i++) {
             char ch = str.charAt(i);
-            arr[ch-'a']=i;
+            int n = ch-'a';
+            if (arr[n]==-1) {
+                arr[n] = i;
+            }
         }
-        for (int i=0; i<arr.length; i++) {
+        for (int i=0; i<num; i++) {
             System.out.print(arr[i]+" ");
         }
     }
