@@ -3,22 +3,23 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String str = sc.next();
         Map<Character, Integer> map = new HashMap<>();
+        int index = -1;
+        char answer = ' ';
+        
         for (int i=0; i<str.length(); i++) {
             char ch = Character.toUpperCase(str.charAt(i));
             map.put(ch, map.getOrDefault(ch,0)+1);
         }
-        char answer = '?';
-        int max = 0;
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            if (max == entry.getValue()) {
-                answer = '?';
-            } else if (max < entry.getValue()) {
-                max = entry.getValue();
-                answer = entry.getKey();
-            }
+            if (entry.getValue()==index) {
+                answer='?';
+            } else if (entry.getValue()>index) {
+                answer=entry.getKey();
+                index=entry.getValue();
+            }            
         }
-        System.out.println(answer);
+        System.out.print(answer);
     }
 }
