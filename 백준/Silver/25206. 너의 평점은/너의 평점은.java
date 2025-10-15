@@ -5,6 +5,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Map<String, Double> map = new HashMap<>();
+        double sum = 0.0;
+        double grade = 0.0;
         map.put("A+",4.5);
         map.put("A0",4.0);
         map.put("B+",3.5);
@@ -14,19 +16,18 @@ public class Main {
         map.put("D+",1.5);
         map.put("D0",1.0);
         map.put("F",0.0);
-        double sum = 0;
-        int count = 0;
+        
         for (int i=0; i<20; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            String str = st.nextToken();
+            String name = st.nextToken();
             double a = Double.parseDouble(st.nextToken());
-            String s = st.nextToken();
-            if (s.equals("P"))
+            String str = st.nextToken();
+            if (str.equals("P"))
                 continue;
-            double b = map.get(s);
+            double b = map.get(str);
             sum+=(a*b);
-            count+=a;
+            grade+=a;
         }
-        System.out.println(sum/count);
+        System.out.print(sum/grade);
     }
 }
