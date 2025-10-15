@@ -3,12 +3,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String str = sc.next();
         StringBuilder sb = new StringBuilder(str);
-        if ((sb.reverse().toString()).equals(str)) {
-            System.out.println(1);
-        } else {
-            System.out.println(0);
+        String s = sb.reverse().toString();
+        int answer = 0;
+        
+        if (str.equals(s)) {
+            answer = 1;
         }
+        
+        System.out.print(answer);
     }
 }
