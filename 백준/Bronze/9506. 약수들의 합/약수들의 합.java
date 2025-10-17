@@ -4,30 +4,34 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = 0;
-        while ((n=Integer.parseInt(br.readLine()))!=-1) {
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int num = 0;
+        
+        while ((num=Integer.parseInt(br.readLine()))!=-1) {
             List<Integer> list = new ArrayList<>();
             int sum = 1;
-            for (int i=2; i*i<=n; i++) {
-                if (n%i==0) {
+            for (int i=2; i*i<=num; i++) {
+                if (num%i==0) {
                     list.add(i);
                     sum+=i;
-                    if (i!=(n/i)) {
-                        list.add(n/i);
-                        sum+=(n/i);
-                    }
+                    if ((num/i)!=i) {
+                        list.add(num/i);
+                        sum+=(num/i);
+                    }  
                 }
             }
-            if (sum==n) {
-                Collections.sort(list);
-                System.out.print(n+" = 1 + ");
+            
+            Collections.sort(list);
+            if (sum==num) {
+                bw.write(num+" = 1 + ");
                 for (int i=0; i<list.size()-1; i++) {
-                    System.out.print(list.get(i)+" + ");
+                    bw.write(list.get(i)+" + ");
                 }
-                System.out.println(list.get(list.size()-1));
+                bw.write(list.get(list.size()-1)+"\n");
             } else {
-                System.out.println(n+" is NOT perfect.");
+                bw.write(num+" is NOT perfect.\n");
             }
         }
+        bw.flush();
     }
 }
