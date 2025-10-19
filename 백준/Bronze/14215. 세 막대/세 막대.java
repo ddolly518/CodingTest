@@ -3,13 +3,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[3];
-        for (int i=0; i<3; i++) {
-            arr[i] = sc.nextInt();
-        }
-        Arrays.sort(arr);
-        int num = arr[0]+arr[1]-1;
-        int answer = num+1+Math.min(num,arr[2]);
-        System.out.println(answer);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int sum = (a+b+c);
+        int max = Math.max(a,b);
+        max = Math.max(max,c);
+        sum-=max;
+        if (max<sum) {
+            System.out.print(sum+max);
+        } else {
+            System.out.print(2*sum-1);
+        } 
     }
 }
