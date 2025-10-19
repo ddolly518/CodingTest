@@ -1,17 +1,20 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for (int i=2; i*i<=n; i++) {
-            while (n%i==0) {
-                System.out.println(i);
-                n/=i;
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = sc.nextInt();
+        
+        for (int i=2; i*i<=N; i++) {
+            while (N%i==0) {
+                N/=i;
+                bw.write(i+"\n");
             }
         }
-        if (n>1) {
-            System.out.println(n);
-        }
+        if (N>1)
+            bw.write(N+"\n");
+        bw.flush();
     }
 }
