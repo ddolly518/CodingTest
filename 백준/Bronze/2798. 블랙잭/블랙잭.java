@@ -7,21 +7,24 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N];
+        int[] arr = new int[N+1];
+        int answer = 0;
+        
         st = new StringTokenizer(br.readLine());
         for (int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        int min = Integer.MAX_VALUE;
         for (int i=0; i<N-2; i++) {
             for (int j=i+1; j<N-1; j++) {
                 for (int k=j+1; k<N; k++) {
-                    int num = arr[i]+arr[j]+arr[k];
-                    if (num<=M)
-                        min = Math.min(min, M-num);
+                    int sum = arr[i]+arr[j]+arr[k];
+                    if (sum<=M) {
+                        answer = Math.max(answer,sum);
+                    }
                 }
             }
         }
-        System.out.println(M-min);
+        
+        System.out.print(answer);
     }
 }
