@@ -1,5 +1,5 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -7,34 +7,44 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        char[][] arr = new char[N][M];
+        String[][] arr = new String[N+1][M+1];
+        int answer = 50*50;
+        
         for (int i=0; i<N; i++) {
             String str = br.readLine();
+            String[] a = str.split("");
             for (int j=0; j<M; j++) {
-                arr[i][j] = str.charAt(j);
+                arr[i][j] = a[j];
             }
         }
-        int min = Integer.MAX_VALUE;
+        
         for (int i=0; i<=N-8; i++) {
             for (int j=0; j<=M-8; j++) {
-                int countw = 0;
-                int countb = 0;
-                for (int a=0; a<8; a++) {
-                    for (int b=0; b<8; b++) {
-                        char ch = arr[i+a][j+b];
-                        if ((a + b) % 2 == 0) {
-                            if (ch != 'W') countw++;
-                            if (ch != 'B') countb++;
+                int countW = 0;
+                int countB = 0;
+                
+                for (int k=0; k<8; k++) {
+                    for (int p=0; p<8; p++) {
+                        int x = i+k;
+                        int y = j+p;
+                        String ch = arr[x][y];
+                        if ((x+y)%2==0) {
+                            if (ch.equals("W")) countW++;
+                            else countB++;
                         } else {
-                            if (ch != 'B') countw++;
-                            if (ch != 'W') countb++;
+                            if (ch.equals("W")) countB++;
+                            else countW++;
                         }
                     }
                 }
-                min = Math.min(min,countw);
-                min = Math.min(min,countb);
+                int count = Math.min(countW, countB);
+                answer = Math.min(answer,count);
             }
         }
-        System.out.println(min);
+        
+        if (answer == 50*50)
+            answer = 0;
+        
+        System.out.print(answer);
     }
 }
