@@ -4,22 +4,30 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
         int N = Integer.parseInt(br.readLine());
-        int[][] arr = new int[N][2];
+        List<int[]> list = new ArrayList<>();
         for (int i=0; i<N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            list.add(new int[]{a,b});
         }
-        Arrays.sort(arr, (a,b) -> {
-            if (a[0] == b[0]) {
-                return a[1] - b[1];
-            } else {
-                return a[0] - b[0];
-            }
+        
+        Collections.sort(list,(a,b)-> {
+           if (a[0]==b[0]) {
+               return a[1]-b[1];
+           } else {
+               return a[0]-b[0];
+           }
         });
+        
         for (int i=0; i<N; i++) {
-            System.out.println(arr[i][0]+" "+arr[i][1]);
+            int a = list.get(i)[0];
+            int b = list.get(i)[1];
+            bw.write(a+" "+b+"\n");
         }
+        bw.flush();
     }
 }
