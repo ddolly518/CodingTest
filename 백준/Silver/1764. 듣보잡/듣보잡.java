@@ -5,30 +5,29 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        Map<String, Integer> map = new HashMap<>();
-        List<String> list = new ArrayList<>();
+        Map<String,Integer> map = new HashMap<>();
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int count = 0;
-        for (int i=0; i<N; i++) {
+        
+        for (int i=0; i<(M+N); i++) {
             String str = br.readLine();
-            map.put(str, 1);
+            map.put(str, map.getOrDefault(str,0)+1);
         }
-        for (int i=0; i<M; i++) {
-            String str = br.readLine();
-            if(map.containsKey(str)) {
-                count++;
-                list.add(str);
+        int answer = 0;
+        List<String> list = new ArrayList<>();
+        for (Map.Entry<String,Integer> entry : map.entrySet()) {
+            if (entry.getValue()==2) {
+                answer++;
+                list.add(entry.getKey());
             }
-                
         }
+        
         Collections.sort(list);
-        bw.write(count+"\n");
-        for (String str : list) {
-            bw.write(str+"\n");
+        bw.write(answer+"\n");
+        for (int i=0; i<list.size(); i++) {
+            bw.write(list.get(i)+"\n");
         }
         bw.flush();
-        bw.close();
     }
 }
