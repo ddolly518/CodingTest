@@ -5,22 +5,26 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        Map<String, Integer> mapStr = new HashMap<>();
+        Map<Integer, String> mapInt = new HashMap<>();
         
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        Map<String, String> map = new HashMap<>();
-        for (int i=1; i<=n; i++) {
+        for (int i=0; i<N; i++) {
             String str = br.readLine();
-            String num = String.valueOf(i);
-            map.put(str,num);
-            map.put(num,str);
+            mapStr.put(str,i+1);
+            mapInt.put(i+1,str);
         }
-        for (int i=0; i<m; i++) {
+        for (int i=0; i<M; i++) {
             String str = br.readLine();
-            bw.write(map.get(str)+"\n");
+            if (str.matches("[0-9]+")) {
+                bw.write(mapInt.get(Integer.parseInt(str))+"\n");
+            } else {
+                bw.write(mapStr.get(str)+"\n");
+            }
         }
+        
         bw.flush();
-        bw.close();
     }
 }
