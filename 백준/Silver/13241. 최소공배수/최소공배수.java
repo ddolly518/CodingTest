@@ -3,14 +3,19 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        long a = sc.nextLong();
-        long b = sc.nextLong();
-        long answer = a*b;
+        long A = sc.nextLong();
+        long B = sc.nextLong();
+        System.out.print(lcm(A,B));
+    }
+    private static long gcd(long a, long b) {
         while (b!=0) {
-            long temp = b;
-            b = a%b;
-            a = temp;
+            long temp = a%b;
+            a = b;
+            b = temp;
         }
-        System.out.println(answer/a);
+        return a;
+    }
+    private static long lcm(long a, long b) {
+        return Math.abs(a*b)/gcd(a,b);
     }
 }
