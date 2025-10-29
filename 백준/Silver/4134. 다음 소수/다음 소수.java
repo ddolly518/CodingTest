@@ -5,28 +5,30 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(br.readLine());
         
-        int n = Integer.parseInt(br.readLine());
-        for (int i=0; i<n; i++) {
+        for (int i=0; i<N; i++) {
             long num = Long.parseLong(br.readLine());
-            boolean bo = false;
-            while (!bo) {
-                bo = true;
-                if (num < 2) num = 2;
+            if (num < 2) {
+                bw.write(2+"\n");
+                continue;
+            }
+            while (true) {
+                boolean bo = true;
+                
                 for (long j=2; j*j<=num; j++) {
                     if (num%j==0) {
                         bo = false;
-                        num++;
                         break;
                     }
                 }
-            }
-            if (bo) {
-                bw.write(num+"\n");
+                if (bo) {
+                    bw.write(num+"\n");
+                    break;
+                }
+                num++;
             }
         }
-        
         bw.flush();
-        bw.close();
     }
 }
