@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n = Integer.parseInt(br.readLine());
-        boolean[] b = new boolean[1000001];
+        int N = Integer.parseInt(br.readLine());
+        List<Integer> list = new ArrayList<>();
         for (int i=2; i<=1000000; i++) {
             boolean bo = true;
             for (int j=2; j*j<=i; j++) {
@@ -15,21 +15,32 @@ public class Main {
                     break;
                 }
             }
-            if (bo) {
-                b[i] = true;
-            }
+            if (bo)
+                list.add(i);
         }
+        Collections.sort(list);
         
-        for (int i=0; i<n; i++) {
-            int m = Integer.parseInt(br.readLine());
-            int count = 0;
-            for (int j=2; j<=m/2; j++) {
-                if (b[j] && b[m-j])
-                    count++;
+        for (int i=0; i<N; i++) {
+            int left = 0;
+            int right = list.size()-1;
+            int answer = 0;
+            int num = Integer.parseInt(br.readLine());
+            
+            while (left<=right) {
+                int sum = list.get(left)+list.get(right);
+                if (sum < num) {
+                    left++;
+                } else if (sum > num) {
+                    right--;
+                } else {
+                    answer++;
+                    left++;
+                    right--;
+                }
             }
-            bw.write(count+"\n");
+            
+            bw.write(answer+"\n");  
         }
         bw.flush();
-        bw.close();
     }
 }
