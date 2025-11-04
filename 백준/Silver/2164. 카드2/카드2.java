@@ -4,14 +4,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> dq = new ArrayDeque<>();
+        
         for (int i=1; i<=n; i++) {
-            queue.offer(i);
+            dq.offerLast(i);
         }
-        while (queue.size()!=1) {
-            queue.poll();
-            queue.offer(queue.poll());
+        
+        while (dq.size()!=1) {
+            dq.poll();
+            int num = dq.poll();
+            dq.offerLast(num);
         }
-        System.out.println(queue.peek());
+        System.out.print(dq.peek());
     }
 }
