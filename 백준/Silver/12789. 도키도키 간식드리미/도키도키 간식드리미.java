@@ -4,26 +4,29 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        int num = 1;
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
-        for (int i=0; i<n; i++) {
-            int m = Integer.parseInt(st.nextToken());
-            if (m==num) {
-                num++;
+        int count = 1;
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        
+        for (int i=0; i<N; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            
+            if (num == count) {
+                count++;
             } else {
-                stack.push(m);
+                stack.push(num);
             }
-            while (!stack.isEmpty() && stack.peek()==num) {
+            while (!stack.isEmpty() && stack.peek()==count) {
                 stack.pop();
-                num++;
-            } 
+                count++;
+            }
         }
-        if (stack.isEmpty()) {
-            System.out.println("Nice");
+        
+        if (stack.isEmpty() && count == N+1) {
+            System.out.print("Nice");
         } else {
-            System.out.println("Sad");
+            System.out.print("Sad");
         }
     }
 }
