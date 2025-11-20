@@ -1,25 +1,27 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        List<Integer> list = new ArrayList<>();
-        int num = 0;
-        for (int i=1; i<=n; i++) {
-            list.add(i);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        Queue<Integer> queue = new LinkedList<>();
+        
+        for (int i=1; i<=N; i++) {
+            queue.offer(i);
         }
-        System.out.print("<");
-        while(!list.isEmpty()) {
-            num+=k;
-            num = (num-1)%list.size();
-            System.out.print(list.remove(num));
-            if (!list.isEmpty()) {
-                System.out.print(", ");
+        
+        bw.write("<");
+        while (queue.size()>1) {
+            for (int i=1; i<K; i++) {
+                queue.offer(queue.poll());
             }
-                            
+            bw.write(queue.poll()+", ");
         }
-        System.out.println(">");
+        bw.write(queue.poll()+">");
+        bw.flush();
+        
     }
 }
