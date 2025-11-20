@@ -6,29 +6,32 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i=0; i<n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(br.readLine());
+        
+        int[] arr = new int[N];
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        for (int i=0; i<N; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            arr[i] = num;
         }
-        Deque<Integer> queue = new LinkedList<>();
-        st = new StringTokenizer(br.readLine());
-        for (int i=0; i<n; i++) {
+        
+        st = new StringTokenizer(br.readLine(), " ");
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int i=0; i<N; i++) {
             int num = Integer.parseInt(st.nextToken());
             if (arr[i]==0) {
-                queue.offerFirst(num);
+                deque.offerFirst(num);
             }
         }
-        int count = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine());
-        for (int i=0; i<count; i++) {
+        
+        int M = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine(), " ");
+        for (int i=0; i<M; i++) {
             int num = Integer.parseInt(st.nextToken());
-            queue.offer(num);
-            num = queue.poll();
-            bw.write(num+" ");
+            deque.offer(num);
+            bw.write(deque.poll()+" ");
         }
+        
         bw.flush();
-        bw.close();
     }
 }
