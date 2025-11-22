@@ -2,40 +2,45 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int n;
-    static int m;
-    static boolean[] V;
-    static int[] S;
+    static int N;
+    static int M;
+    static int[] arr;
+    static boolean[] visited;
+    static BufferedWriter bw;
     
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        
-        V = new boolean[n];
-        S = new int[m];
+        Scanner sc = new Scanner(System.in);
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        N = sc.nextInt();
+        M = sc.nextInt();
+        arr = new int[N];
+        visited = new boolean[N+1];
         
         backtracking(0);
+        
+        bw.flush();
     }
     
-    private static void backtracking(int length) {
-        if (length==m) {
-            for (int num : S) {
-                System.out.print(num+" ");
-            }
-            System.out.println();
+    private static void backtracking(int length) throws IOException {
+        if (length == M) {
+            print();
             return;
         }
-        for (int i=0; i<n; i++) {
-            if (!V[i]) {
-                V[i] = true;
-                S[length] = i+1;
+        
+        for (int i=1; i<=N; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                arr[length] = i;
                 backtracking(length+1);
-                V[i] = false;
+                visited[i] = false;
             }
         }
         
+    }
+    private static void print() throws IOException {
+        for (int i=0; i<M; i++) {
+            bw.write(arr[i]+" ");
+        }
+        bw.newLine();
     }
 }
