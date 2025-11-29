@@ -1,11 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        long count = (long)n * (n - 1) * (n - 2) / 6;
-        System.out.println(count);
-        System.out.println(3);
+        long n = sc.nextLong();
+        System.out.println(n*(n-1)*(n-2)/6);
+        System.out.print(3);
     }
 }
