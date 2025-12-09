@@ -1,14 +1,15 @@
 import java.util.*;
+import java.io.*;
 
-class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int A1 = in.nextInt();
-        int A2 = in.nextInt();
-        int A3 = in.nextInt();
-        int A4 = in.nextInt();
-        int A5 = in.nextInt();
-        int B = (int)(Math.pow(A1, 2)+Math.pow(A2, 2)+Math.pow(A3, 2)+Math.pow(A4, 2)+Math.pow(A5, 2))%10;
-        System.out.print(B);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int sum = 0;
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        for (int i=0; i<5; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            sum += (num*num);
+        }
+        System.out.print(sum%10);
     }
 }
