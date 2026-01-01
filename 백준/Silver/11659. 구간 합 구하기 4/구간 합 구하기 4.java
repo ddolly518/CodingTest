@@ -6,30 +6,23 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr;
-        int[] S;
-        
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        
-        arr = new int[n+1];
-        S = new int[n+1];
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        int[] arr = new int[N+1];
+        long[] sum = new long[N+1];
         
         st = new StringTokenizer(br.readLine());
-        for (int i=1; i<n+1; i++) {
+        for (int i=1; i<=N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            S[i] = S[i-1]+arr[i];
+            sum[i] = sum[i-1] + arr[i];
         }
         
-        for (int i=0; i<m; i++) {
+        for (int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            int num = S[b]-S[a-1];
-            bw.write(num+"\n");
+            bw.write(sum[b]-sum[a-1]+"\n");
         }
-        
         bw.flush();
-        bw.close();
     }
 }
