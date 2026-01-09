@@ -19,14 +19,8 @@ public class Main {
                 }
             }
         }
-        
-        int max = 0;
-        for (int i=1; i<=a.length(); i++) {
-            for (int j=1; j<=b.length(); j++) {
-                max = Math.max(max, dp[i][j]);
-            }
-        }
-        bw.write(max+"");
+
+        bw.write(dp[a.length()][b.length()]+"");
         bw.flush();
     }
 }
