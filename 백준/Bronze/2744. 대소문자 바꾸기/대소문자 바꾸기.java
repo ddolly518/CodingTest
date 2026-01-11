@@ -1,17 +1,18 @@
 import java.util.*;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String A = in.next();
-        for (int i=0; i<A.length(); i++) {
-            char ch = A.charAt(i);
-            if (Character.isUpperCase(ch)) {
-                ch = Character.toLowerCase(ch);
-            } else if (Character.isLowerCase(ch)) {
-                ch = Character.toUpperCase(ch);
-            }
-            System.out.print(ch);
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isUpperCase(ch))
+                sb.append(Character.toLowerCase(ch));
+            else
+                sb.append(Character.toUpperCase(ch));
         }
+        
+        System.out.print(sb.toString());
     }
 }
