@@ -1,13 +1,15 @@
 import java.util.*;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String a = in.next();
-        String b = in.next();
-        if (a.length()>=b.length())
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        String b = sc.next();
+        
+        if (a.length()>=b.length()) {
             System.out.print("go");
-        else 
+        } else {
             System.out.print("no");
+        }
     }
 }
