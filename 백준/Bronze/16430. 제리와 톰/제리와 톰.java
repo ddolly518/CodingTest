@@ -3,9 +3,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int num = m-n;
-        System.out.println(num+" "+m);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        System.out.println(B-A+" "+B);
     }
 }
