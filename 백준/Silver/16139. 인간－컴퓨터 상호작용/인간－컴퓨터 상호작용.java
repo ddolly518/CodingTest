@@ -5,23 +5,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String s = br.readLine();
-        int q = Integer.parseInt(br.readLine());
-        for (int i=0; i<q; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            char ch = (st.nextToken()).charAt(0);
-            int l = Integer.parseInt(st.nextToken());
-            int r = Integer.parseInt(st.nextToken());
-            int answer = 0;
+        String str = br.readLine();
+        int len = str.length();
+        int[][] arr = new int[len+1]['z'-'a'+1];
+        
+        for (int i=0; i<len; i++) {
+            char ch = str.charAt(i);
             
-            for (int j=l; j<=r; j++) {
-                if (s.charAt(j) == ch)
-                    answer++;
+            for (int j=0; j<26; j++) {
+                arr[i+1][j] = arr[i][j];
             }
-            
-            bw.write(answer+"\n");
+            arr[i+1][ch-'a']++;
         }
         
+        int n = Integer.parseInt(br.readLine());
+        for (int i=0; i<n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            char ch = st.nextToken().charAt(0);
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int num = arr[b+1][ch-'a'] - arr[a][ch-'a'];
+            bw.write(num+"\n");
+        }
         bw.flush();
     }
 }
