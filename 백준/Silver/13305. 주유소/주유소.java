@@ -5,28 +5,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
-        int[] b = new int[N-1];
-        int answer = 0;
+        int n = Integer.parseInt(br.readLine());
+        long[] arr = new long[n];
+        long[] number = new long[n-1];
+        long answer = 0;
         
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        for (int i=0; i<N-1; i++) {
-            b[i] = Integer.parseInt(st.nextToken());
+        for (int i=0; i<n-1; i++) {
+            number[i] = Long.parseLong(st.nextToken());
         }
         st = new StringTokenizer(br.readLine(), " ");
-        for (int i=0; i<N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        for (int i=0; i<n; i++) {
+            arr[i] = Long.parseLong(st.nextToken());
         }
         
-        int min = Integer.MAX_VALUE;
-        for (int i=0; i<N-1; i++) {
+        long min = arr[0];
+        for (int i=0; i<n-1; i++) {
             min = Math.min(min, arr[i]);
-            answer+=(min*b[i]);
+            answer+=(min*number[i]);
         }
-        
         bw.write(answer+"");
         
         bw.flush();
+        bw.close();
     }
 }
