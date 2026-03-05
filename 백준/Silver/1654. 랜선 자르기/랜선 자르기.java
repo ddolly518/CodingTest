@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int K = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        long min = 1;
+        long max = 0;
+        int[] arr = new int[K];
+        for (int i=0; i<K; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+            max = Math.max(max, arr[i]);
+        }
+        
+        while (min <= max) {
+            long mid = (max+min)/2;
+            
+            long count = 0;
+            for (int i=0; i<K; i++) {
+                count+=(arr[i]/mid);
+            }
+            
+            if (count < N) {
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        
+        bw.write(max+"");
+        
+        bw.flush();
+        bw.close();
+    }
+}
