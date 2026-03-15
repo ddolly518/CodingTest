@@ -5,27 +5,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        PriorityQueue<Integer> queue = new PriorityQueue<>((a,b) -> {
-            if (Math.abs(a)==Math.abs(b)) {
+        int N = Integer.parseInt(br.readLine());
+        Queue<Integer> pq = new PriorityQueue<>((a,b) -> {
+            if (Math.abs(a) == Math.abs(b)) {
                 return a-b;
-            } else {
-                return Math.abs(a)-Math.abs(b);
             }
+            return Math.abs(a)-Math.abs(b);
         });
         
-        int n = Integer.parseInt(br.readLine());
-        for (int i=0; i<n; i++) {
+        for (int i=0; i<N; i++) {
             int num = Integer.parseInt(br.readLine());
             if (num == 0) {
-                if (queue.isEmpty()) {
-                    bw.write(0+"\n");
+                if (pq.isEmpty()) {
+                    bw.write("0\n");
                 } else {
-                    bw.write(queue.poll()+"\n");
+                    bw.write(pq.poll()+"\n");
                 }
             } else {
-                queue.offer(num);
+                pq.offer(num);
             }
         }
+        
         bw.flush();
+        bw.close();
     }
 }
