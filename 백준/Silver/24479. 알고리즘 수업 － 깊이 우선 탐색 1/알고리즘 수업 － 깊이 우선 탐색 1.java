@@ -19,8 +19,8 @@ public class Main {
         count = new int[N+1];
         cnt = 1;
         
-        for (int i=0; i<=N; i++) {
-        	A[i] = new ArrayList<Integer>();
+        for (int i=1; i<=N; i++) {
+            A[i] = new ArrayList<>();
         }
         for (int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine(), " ");
@@ -32,17 +32,14 @@ public class Main {
         for (int i=1; i<=N; i++) {
             Collections.sort(A[i]);
         }
-
         dfs(R);
         
         for (int i=1; i<=N; i++) {
             bw.write(count[i]+"\n");
         }
-        
         bw.flush();
         bw.close();
     }
-    
     private static void dfs(int v) {
         visited[v] = true;
         count[v] = cnt++;
