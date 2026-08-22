@@ -1,10 +1,10 @@
 # [level 0] 문자열 돌리기 - 181945 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181945?language=javascript) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181945) 
 
 ### 성능 요약
 
-메모리: 31.4 MB, 시간: 32.97 ms
+메모리: 71.6 MB, 시간: 79.75 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 05월 25일 14:37:42
+2026년 08월 22일 17:29:42
 
 ### 문제 설명
 
