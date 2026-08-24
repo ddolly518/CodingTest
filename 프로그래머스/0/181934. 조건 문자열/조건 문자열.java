@@ -1,18 +1,19 @@
 class Solution {
     public int solution(String ineq, String eq, int n, int m) {
         int answer = 0;
-        String a = "";
-        if (n > m) {
-            a = ">";
-        } else if (n < m) {
-            a = "<";
+        if (ineq.equals("<")) {
+            if (eq.equals("=")) {
+                answer = (n <= m) ? 1 : 0;
+            } else {
+                answer = (n < m) ? 1 : 0;
+            }
         } else {
-            a = "=";
+            if (eq.equals("=")) {
+                answer = (n >= m) ? 1 : 0;
+            } else {
+                answer = (n > m) ? 1 : 0;
+            }
         }
-        if (n!=m)
-            answer = (ineq.equals(a)) ? 1 : 0;
-        else
-            answer = (eq.equals(a)) ? 1 : 0;
         return answer;
     }
 }
