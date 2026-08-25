@@ -1,12 +1,17 @@
+import java.util.*;
+
 class Solution {
     public int solution(int a, int b, int c) {
-        int answer = 0;
-        if (a!=b&&b!=c&&c!=a) {
-            answer=(a+b+c);
-        } else if ((a==b&&a!=c)||(a==c&&a!=b)||(b==c&&a!=b)) {
-            answer=(a+b+c)*(a*a+b*b+c*c);
-        } else {
-            answer=(a+b+c)*(a*a+b*b+c*c)*(a*a*a+b*b*b+c*c*c);
+        int answer = (a+b+c);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(a, map.getOrDefault(a,0)+1);
+        map.put(b, map.getOrDefault(b,0)+1);
+        map.put(c, map.getOrDefault(c,0)+1);
+        if (map.size() <= 2) {
+            answer *= (Math.pow(a,2) + Math.pow(b,2) + Math.pow(c,2));
+        } 
+        if (map.size() == 1) {
+            answer *= (Math.pow(a,3) + Math.pow(b,3) + Math.pow(c,3));
         }
         return answer;
     }
