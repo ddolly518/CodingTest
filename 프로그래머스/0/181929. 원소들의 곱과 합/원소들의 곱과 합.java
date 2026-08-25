@@ -1,13 +1,13 @@
 class Solution {
     public int solution(int[] num_list) {
         int answer = 0;
-        int sum = 0;
-        int mult = 1;
-        for (int i : num_list) {
-            sum+=i;
-            mult*=i;
+        int num1 = 1;
+        int num2 = 0;
+        for (int num : num_list) {
+            num1*=num;
+            num2+=num;
         }
-        answer = (Math.pow(sum,2)>mult) ? 1 : 0;
+        answer = (num1 < Math.pow(num2, 2)) ? 1 : 0;
         return answer;
     }
 }
