@@ -1,18 +1,23 @@
 class Solution {
     public int[] solution(int[] arr, int[][] queries) {
         int[] answer = new int[queries.length];
-        int index = 0;
-        for (int[] query : queries) {
-            int min = 1000001;
-            for (int i=query[0]; i<=query[1]; i++) {
-                if(arr[i]>query[2] && arr[i]<min) {
-                    min=arr[i];
+        for (int i=0; i<queries.length; i++) {
+            int s = queries[i][0];
+            int e = queries[i][1];
+            int k = queries[i][2];
+            
+            int min = Integer.MAX_VALUE;
+            boolean bo = false;
+            for (int j=s; j<=e; j++) {
+                int num = arr[j];
+                if (num > k) {
+                    min = Math.min(min, num);
+                    bo = true;
                 }
             }
-            if (min == 1000001)
-                min=-1;
-            answer[index]=min;
-            index++;
+            if (!bo)
+                min = -1;
+            answer[i] = min;
         }
         return answer;
     }
