@@ -1,15 +1,15 @@
 class Solution {
     public String solution(int[] numLog) {
         String answer = "";
-        for (int i=0; i<numLog.length-1; i++) {
-            int num = numLog[i+1]-numLog[i];
-            switch (num) {
-                case 1 -> answer+='w';
-                case -1 -> answer+='s';
-                case 10 -> answer+='d';
-                case -10 -> answer+='a';
-            }    
+        StringBuilder sb = new StringBuilder();
+        for (int i=1; i<numLog.length; i++) {
+            int num = numLog[i] - numLog[i-1];
+            if (num == 1) sb.append('w');
+            else if (num == -1) sb.append('s');
+            else if (num == 10) sb.append('d');
+            else if (num == -10) sb.append('a');
         }
+        answer = sb.toString();
         return answer;
     }
 }
