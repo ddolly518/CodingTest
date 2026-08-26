@@ -1,18 +1,13 @@
 class Solution {
     public int solution(int n, String control) {
         int answer = 0;
-        for (int i=0; i<control.length(); i++) {
-            char c = control.charAt(i);
-            if (c=='w')
-                n++;
-            else if (c=='s')
-                n--;
-            else if (c=='d')
-                n+=10;
-            else if (c=='a')
-                n-=10;
+        for (char ch : control.toCharArray()) {
+            if (ch == 'w') n++;
+            else if (ch == 's') n--;
+            else if (ch == 'd') n+=10;
+            else if (ch == 'a') n-=10;
         }
-        answer=n;
+        answer = n;
         return answer;
     }
 }
