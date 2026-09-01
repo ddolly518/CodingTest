@@ -1,22 +1,27 @@
 import java.util.*;
+
 class Solution {
     public int[] solution(int[] arr) {
+        int[] stk = {};
         List<Integer> list = new ArrayList<>();
-        int i=0;
-        while (i<arr.length) {
-            if (list.isEmpty()) {
-                list.add(arr[i]);
-                i++;
-            } else if (list.get(list.size()-1)<arr[i]) {
+        int i = 0;
+        while (i < arr.length) {
+            if (list.size() == 0) {
                 list.add(arr[i]);
                 i++;
             } else {
-                list.remove(list.size()-1);
+                int num = list.get(list.size()-1);
+                if (num < arr[i]) {
+                    list.add(arr[i]);
+                    i++;
+                } else {
+                    list.remove(list.size()-1);
+                }
             }
         }
-        int[] stk = new int[list.size()];
-        for (int index=0; index<list.size(); index++) {
-            stk[index]=list.get(index);
+        stk = new int[list.size()];
+        for (int j=0; j<list.size(); j++) {
+            stk[j] = list.get(j);
         }
         return stk;
     }
