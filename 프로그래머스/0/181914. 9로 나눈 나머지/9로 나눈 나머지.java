@@ -1,12 +1,11 @@
-import java.util.*;
 class Solution {
     public int solution(String number) {
         int answer = 0;
-        int sum = 0;
         for (char ch : number.toCharArray()) {
-            sum+=ch-'0';
+            int num = ch-'0';
+            answer+=num;
         }
-        answer = sum%9;
+        answer%=9;
         return answer;
     }
 }
