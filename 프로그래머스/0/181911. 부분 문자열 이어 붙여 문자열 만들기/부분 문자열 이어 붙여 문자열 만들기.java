@@ -1,13 +1,11 @@
 class Solution {
     public String solution(String[] my_strings, int[][] parts) {
         String answer = "";
-        int index = 0;
-        for (String str : my_strings) {
-            int s = parts[index][0];
-            int e = parts[index][1];
-            index++;
-            answer+=str.substring(s,e+1);
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<my_strings.length; i++) {
+            sb.append(my_strings[i].substring(parts[i][0], parts[i][1]+1));
         }
+        answer = sb.toString();
         return answer;
     }
 }
