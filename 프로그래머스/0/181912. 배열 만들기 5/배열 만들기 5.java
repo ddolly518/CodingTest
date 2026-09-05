@@ -2,15 +2,16 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String[] intStrs, int k, int s, int l) {
-        
+        int[] answer = {};
         List<Integer> list = new ArrayList<>();
+        
         for (String str : intStrs) {
-            String intStr = str.substring(s,s+l);
-            if (k < Integer.valueOf(intStr)) {
-                list.add(Integer.valueOf(intStr));
-            }
+            int num = Integer.valueOf(str.substring(s, s+l));
+            if (num > k)
+                list.add(num);
         }
-        int[] answer = new int[list.size()];
+        
+        answer = new int[list.size()];
         for (int i=0; i<list.size(); i++) {
             answer[i] = list.get(i);
         }
