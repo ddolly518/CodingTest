@@ -2,15 +2,27 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr, int[] query) {
-        for (int i = 0; i < query.length; i++) {
-            int index = query[i];
-            if (i % 2 == 0) {
-                arr = Arrays.copyOfRange(arr, 0, index+1);
+        int[] answer = {};
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int num : arr) {
+            deque.offer(num);
+        }
+        for (int i=0; i<query.length; i++) {
+            if (i%2 == 0) {
+                int num = deque.size()-1-query[i];
+                for (int j=0; j<num; j++)
+                    deque.pollLast();
             } else {
-                arr = Arrays.copyOfRange(arr, index, arr.length);
+                int num = query[i];
+                for (int j=0; j<num; j++) 
+                    deque.pollFirst();
             }
         }
-        
-        return arr;
+        int size = deque.size();
+        answer = new int[size];
+        for (int i=0; i<size; i++) {
+            answer[i] = deque.pollFirst();
+        }
+        return answer;
     }
 }
