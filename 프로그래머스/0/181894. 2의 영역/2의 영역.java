@@ -5,12 +5,9 @@ class Solution {
         int end = -1;
         for (int i=0; i<arr.length; i++) {
             if (arr[i] == 2) {
-                if (start < 0) {
+                if (start < 0) 
                     start = i;
-                    end = i;
-                }
-                else 
-                    end = i;
+                end = i;
             }
         }
         if (start < 0 || end < 0)
