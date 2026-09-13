@@ -1,16 +1,16 @@
 class Solution {
     public int solution(int[] num_list) {
         int answer = 0;
-        int a = 0;
-        int b = 0;
+        int one = 0;
+        int two = 0;
         for (int i=0; i<num_list.length; i++) {
-            if (i%2==0) {
-                a+=num_list[i];
+            if (i%2 == 0) {
+                one+=num_list[i];
             } else {
-                b+=num_list[i];
+                two+=num_list[i];
             }
         }
-        answer = a > b ? a : b;
+        answer = Math.max(one, two);
         return answer;
     }
 }
