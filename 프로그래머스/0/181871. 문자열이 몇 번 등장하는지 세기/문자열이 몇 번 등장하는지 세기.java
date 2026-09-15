@@ -1,9 +1,9 @@
 class Solution {
     public int solution(String myString, String pat) {
         int answer = 0;
-        int l = pat.length();
-        for (int i=0; i<myString.length()-l+1; i++) {
-            if (pat.equals(myString.substring(i,i+l)))
+        for (int i=0; i<1+myString.length()-pat.length(); i++) {
+            String str = myString.substring(i, i+pat.length());
+            if (str.equals(pat))
                 answer++;
         }
         return answer;
