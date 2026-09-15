@@ -1,11 +1,9 @@
 class Solution {
     public String solution(String myString, String pat) {
         String answer = "";
-        for (int i=myString.length(); i>0; i--) {
-            answer = myString.substring(0, i);
-            if (answer.endsWith(pat))
-                return answer;
-        }
+        int n = myString.lastIndexOf(pat);
+        System.out.print(n);
+        answer = myString.substring(0, n+pat.length());
         return answer;
     }
 }
