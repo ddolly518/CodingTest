@@ -1,14 +1,15 @@
 class Solution {
     public int solution(int[] num_list) {
         int answer = 0;
-        int n = num_list.length;
-        if (n >= 11) {
-            for (int i : num_list)
-                answer+=i;
+        if (num_list.length >= 11) {
+            for (int num : num_list) {
+                answer+=num;
+            }
         } else {
             answer = 1;
-            for (int i : num_list)
-                answer*=i;
+            for (int num : num_list) {
+                answer*=num;
+            }
         }
         return answer;
     }
