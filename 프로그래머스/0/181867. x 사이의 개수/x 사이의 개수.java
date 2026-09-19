@@ -1,15 +1,19 @@
+import java.util.*;
+
 class Solution {
-    public int[] solution(String myString) {   
-        String[] str = myString.split("x");
+    public int[] solution(String myString) {
         int[] answer = {};
-        if (myString.endsWith("x")) {
-            answer = new int[str.length+1];
-            answer[str.length] = 0;
-        } else {
-            answer = new int[str.length];
-        }
-        for (int i=0; i<str.length; i++) {
-            answer[i] = str[i].length();
+        String[] arr = myString.split("x");
+        List<Integer> list = new ArrayList<>();
+        
+        for (String str : arr) 
+            list.add(str.length());
+        if (myString.charAt(myString.length()-1) == 'x')
+            list.add(0);
+        
+        answer = new int[list.size()];
+        for (int i=0; i<list.size(); i++) {
+            answer[i] = list.get(i);
         }
         return answer;
     }
