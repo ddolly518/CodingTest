@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public String[] solution(String myString) {
-        String[] answer = myString.split("x+");
+        String[] answer = myString.split("x");
 
         List<String> list = new ArrayList<>();
 
