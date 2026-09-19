@@ -9,9 +9,7 @@ class Solution {
                 list.add(str);
         }
         answer = new String[list.size()];
-        for (int i=0; i<list.size(); i++) {
-            answer[i] = list.get(i);
-        }
+        list.toArray(answer);
         return answer;
     }
 }
