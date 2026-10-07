@@ -1,8 +1,8 @@
 class Solution {
     public int solution(int M, int N) {
-        int answer = (M-1)+M*(N-1);
-        if (M==1&N==1)
-            answer=0;
+        int answer = 0;
+        if (M==1 && N==1) return 0;
+        answer = (M-1) + (N-1)*M;
         return answer;
     }
 }
