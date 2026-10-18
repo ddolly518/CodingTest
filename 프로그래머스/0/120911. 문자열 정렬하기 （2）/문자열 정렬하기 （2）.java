@@ -3,14 +3,11 @@ import java.util.*;
 class Solution {
     public String solution(String my_string) {
         String answer = "";
-        List<Character> list = new ArrayList<>();
-        for (char ch : my_string.toCharArray()) {
-            list.add(Character.toLowerCase(ch));
-        }
-        Collections.sort(list);
+        char[] ch = my_string.toLowerCase().toCharArray();
+        Arrays.sort(ch);
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i<list.size(); i++) {
-            sb.append(list.get(i));
+        for (char c : ch) {
+            sb.append(c);
         }
         answer = sb.toString();
         return answer;
